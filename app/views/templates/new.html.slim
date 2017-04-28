@@ -1,0 +1,16 @@
+h2 Create a new template
+
+div ng-controller="TemplateCtrl"
+	<h1>{{ title }}</h1>
+
+= form_for @template, url: templates_path do |template| 
+  p
+  	| template name
+    = template.text_field :name
+
+    = fields_for @item do |item|
+    	p
+    		| item name
+    		= item.text_field :name
+  p
+    = template.submit
